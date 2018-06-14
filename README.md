@@ -37,7 +37,7 @@ pip install flake8
 ```
 ### Flake8 i terminalen
 
-Du kan kjøre Flake8 på en fil eller en mappe, og få beskjed om alle brudd på pep8-standarden. Dette gjør du ved å skrive:
+Du kan kjøre Flake8 på en fil eller en mappe, og få beskjed om alle brudd på PEP8-standarden. Dette gjør du ved å skrive:
 
 ```
 flake8 <path to file/folder>
@@ -68,7 +68,7 @@ Du kan også bruke PyCharm til å kjøre Flake8 på en fil eller en mappe:
 #### For å ta det i bruk
 1. Høyeklikk på en fil eller mappe du vil kjøre Flake8 på
 2. Velg External tools -> Flake 8 - file / Flake 8 - folder
-3. Brudd på pep8 blir listet opp i terminalen
+3. Brudd på PEP8 blir listet opp i terminalen
 
 
 ## Black
@@ -105,3 +105,8 @@ Merk at du må ha PyCharm Professional!
 Dersom du har Linux må du nok endre `/usr/local/bin/black`. Bare skriv `which black` i terminalen og kopier den stien.
 
 Nå vil Black kjøres på fila du jobber med når du lagrer!
+
+
+### Git-hooks
+Du kan sette opp hooks på git slik at Flake8 kjører i forkant av en commit og push. Det vil hindre deg i å commite/pushe underkjent kode, noe som kan være praktisk når Circleci vil brekke disse byggene. Du setter opp en githook på denne måten: 
+
