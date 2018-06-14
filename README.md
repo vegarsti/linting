@@ -41,11 +41,11 @@ pip install flake8
 1. Installer Flake8 (se over)
 2. Lokaliser Flake8: `which flake8`
 3. Preferences -> Tools -> External Tools -> + (legg til) `+`
-4. Fyll inn som her: ![settings](https://imgur.com/a/SDkjllW.png)
-  Name: `Flake8 - file` (én enkel fil) eller `Flake8 - folder` (én mappe)
-  Program: <resultatet fra steg 2>
-  Arguments: `--max-line-length 110 $FileDir$/$FileName$` (én enkel fil) eller `--max-line-length 110 $FileDir$` (én mappe)
-  Working directory: `$ProjectFileDir$`
+4. Fyll inn som her: ![Imgur](https://i.imgur.com/Y8YMDQb.png)
+  > *Name*: `Flake8 - file` (én enkel fil) eller `Flake8 - folder` (én mappe)\
+  > *Program*: _<resultatet fra steg 2>_\
+  > *Arguments*: `--max-line-length 110 $FileDir$/$FileName$` (én enkel fil) eller `--max-line-length 110 $FileDir$` (én mappe)\
+  > *Working directory*: `$ProjectFileDir$`
   
 
 ## Black
@@ -77,7 +77,7 @@ Merk at du må ha PyCharm Professional!
 
 1. Installer Black (se over)
 2. Preferences -> Tools -> File Watchers -> + (legg til) `<custom>`
-3. Fyll inn som her: ![settings](https://i.imgur.com/UsuFDXm.png)
+3. Fyll inn som her: ![settings](https://i.imgur.com/UsuFDXm)
 
 Dersom du har Linux må du nok endre `/usr/local/bin/black`. Bare skriv `which black` i terminalen og kopier den stien.
 
