@@ -38,7 +38,19 @@ pip install flake8
 
 ### Flake8 i PyCharm
 
-TODO
+1. Installer Flake8 (se over)
+2. Lokaliser Flake8:
+```
+which flake8
+```
+f.eks. /usr/local/bin/flake8. Legg denne inn som 
+3. Preferences -> Tools -> External Tools -> + (legg til) `+`
+4. Fyll inn som her: ![settings](https://imgur.com/a/SDkjllW.png)
+  Name: `Flake8 - file` (én enkel fil) eller `Flake8 - folder` (én mappe)
+  Program: <resultatet fra steg 2>
+  Arguments: `--max-line-length 110 $FileDir$/$FileName$` (én enkel fil) eller `--max-line-length 110 $FileDir$` (én mappe)
+  Working directory: `$ProjectFileDir$`
+  
 
 ## Black
 
