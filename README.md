@@ -49,7 +49,7 @@ Du kan overstyre pep8-standarden - enten ignorere regler eller endre default-ver
 2. Config-fil i prosjekt-mappen
 3. Global config-fil
 
-Config-filen må hete `.flake8` og vi foreslår følgende som standard: <TODO>
+Config-filen må hete `.flake8` og vi foreslår som ligger i dette repoet som standard. 
 
 
 ### Flake8 i PyCharm
@@ -62,7 +62,7 @@ Du kan også bruke PyCharm til å kjøre Flake8 på en fil eller en mappe:
 4. Fyll inn som her: ![Imgur](https://i.imgur.com/Y8YMDQb.png)
   > *Name*: `Flake8 - file` (én enkel fil) eller `Flake8 - folder` (én mappe)\
   > *Program*: _<resultatet fra steg 2>_\
-  > *Arguments*: `--max-line-length 110 $FileDir$/$FileName$` (én enkel fil) eller `--max-line-length 110 $FileDir$` (én mappe)\
+  > *Arguments*: `--max-line-length 120 $FileDir$/$FileName$` (én enkel fil) eller `--max-line-length 120 $FileDir$` (én mappe)\
   > *Working directory*: `$ProjectFileDir$`
   
 #### For å ta det i bruk
