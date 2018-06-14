@@ -39,11 +39,7 @@ pip install flake8
 ### Flake8 i PyCharm
 
 1. Installer Flake8 (se over)
-2. Lokaliser Flake8:
-```
-which flake8
-```
-f.eks. /usr/local/bin/flake8. Legg denne inn som 
+2. Lokaliser Flake8: `which flake8`
 3. Preferences -> Tools -> External Tools -> + (legg til) `+`
 4. Fyll inn som her: ![settings](https://imgur.com/a/SDkjllW.png)
   Name: `Flake8 - file` (én enkel fil) eller `Flake8 - folder` (én mappe)
