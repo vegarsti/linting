@@ -110,7 +110,7 @@ Nå vil Black kjøres på fila du jobber med når du lagrer!
 ### Git-hooks
 Du kan sette opp hooks på git slik at Flake8 kjører i forkant av en commit og push. Det vil hindre deg i å commite/pushe underkjent kode, noe som kan være praktisk når Circleci vil brekke disse byggene. Du setter opp en githook på denne måten: 
 
-1. Copu the file `pre-commit` to `~/.git/hook-templates/pre-commit
+1. Copy the file `pre-commit` to `~/.git/hook-templates/pre-commit
 ```
 mkdir ~/.git/hook-templates
 cp pre-commmit ~/.git/hook-templates/pre-commit
