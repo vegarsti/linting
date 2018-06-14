@@ -35,8 +35,26 @@ Installer på hele systemet, så sørg for å ikke være i en virtual environmen
 ```
 pip install flake8
 ```
+### Flake8 i terminalen
+
+Du kan kjøre Flake8 på en fil eller en mappe, og få beskjed om alle brudd på pep8-standarden. Dette gjør du ved å skrive:
+
+```
+flake8 <path to file/folder>
+```
+
+Du kan overstyre pep8-standarden - enten ignorere regler eller endre default-verdiene (f.eks. maks lengde på en linje). Dette kan du gjøre ved å enten sende det inn som parameter i kommandoen eller lagre det i en config-fil. Hirarkiet som bestemmer hvilken verdi som blir satt er: 
+
+1. Parameter i kommandoen 
+2. Config-fil i prosjekt-mappen
+3. Global config-fil
+
+Config-filen må hete `.flake8` og vi foreslår følgende som standard: <TODO>
+
 
 ### Flake8 i PyCharm
+
+Du kan også bruke PyCharm til å kjøre Flake8 på en fil eller en mappe: 
 
 1. Installer Flake8 (se over)
 2. Lokaliser Flake8: `which flake8`
@@ -47,6 +65,11 @@ pip install flake8
   > *Arguments*: `--max-line-length 110 $FileDir$/$FileName$` (én enkel fil) eller `--max-line-length 110 $FileDir$` (én mappe)\
   > *Working directory*: `$ProjectFileDir$`
   
+#### For å ta det i bruk
+1. Høyeklikk på en fil eller mappe du vil kjøre Flake8 på
+2. Velg External tools -> Flake 8 - file / Flake 8 - folder
+3. Brudd på pep8 blir listet opp i terminalen
+
 
 ## Black
 
