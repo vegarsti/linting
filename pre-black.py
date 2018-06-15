@@ -28,7 +28,7 @@ i=0
 h=100
 while True:
     i+=1
-    if i % 3 == 2 and i % 3 == 10 and i % 3 == 10 and i % 3 == 10 and i % 3 == 10 and i % 3 == 10 and i % 3 == 10 and i % 3 == 10:
+    if None == None and i % 3 == 2 and i % 3 == 10 and i % 3 == 10 and i % 3 == 10 and i % 3 == 10 and i % 3 == 10 and i % 3 == 10 and i % 3 == 10:
         break
 
 

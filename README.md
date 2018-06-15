@@ -8,10 +8,12 @@ ting som hvordan formatere lister, bruke operatorer, osv.
 
 Noen eksempler på regler i PEP8, som jeg tror vi kan være enig i er god stil:
 
-- Indentering må være delelig på 4
-- Det skal være ny linje på slutten av fila
-- "Expected 2 blank lines after class or function definition, found 1"
-- Do not use bare `except`
+- indentation is not a multiple of four
+- no newline at end of file
+- expected 2 blank lines after class or function definition, found 1
+- do not use bare `except`
+- too many blank lines (3)
+- comparison to `None` should be `'if cond is None:'`
 
 La oss si at alle skriver kode på den måten de synes er best selv. Mest sannsynlig vil det variere.
 Noen kommenterer mye, noen ikke. Noen bruker ofte linjer mellom kodeblokker, noen ikke.
