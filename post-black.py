@@ -21,7 +21,7 @@ def get_coordinates(string_list):
      except:
           print("File not formatted correctly!")
           sys.exit()
-    coordinates.append((x, y))
+     coordinates.append((x, y))
  return coordinates
 
 i=0
