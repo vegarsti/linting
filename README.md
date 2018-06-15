@@ -6,6 +6,13 @@ i programmeringsspråk.
 [PEP8](https://www.python.org/dev/peps/pep-0008/) er en stilguide for Python. Her står det en del regler/konvensjoner om
 ting som hvordan formatere lister, bruke operatorer, osv.
 
+Noen eksempler på regler i PEP8, som jeg tror vi kan være enig i er god stil:
+
+- Indentering må være delelig på 4
+- Det skal være ny linje på slutten av fila
+- "Expected 2 blank lines after class or function definition, found 1"
+- Do not use bare `except`
+
 La oss si at alle skriver kode på den måten de synes er best selv. Mest sannsynlig vil det variere.
 Noen kommenterer mye, noen ikke. Noen bruker ofte linjer mellom kodeblokker, noen ikke.
 Jo større prosjekter, jo større sjanse er det da for at kodebasen blir veldig lite homogen.
@@ -15,14 +22,7 @@ Det blir fort slitsomt å sette seg inn i kode og vanskeligere å lese dersom ma
 
 Noen argumenter for å bruke linting her: [How Python Linters Will Save Your Large Project](https://jeffknupp.com/blog/2016/12/09/how-python-linters-will-save-your-large-python-project/).
 
-En del av PEP8-reglene får man beskjed om i PyCharm også.
-
-Noen eksempler på regler i PEP8, som jeg tror vi kan være enig i er god stil:
-
-- Indentering må være delelig på 4
-- Det skal være ny linje på slutten av fila
-- "Expected 2 blank lines after class or function definition, found 1"
-- Do not use bare `except`
+En del av PEP8-reglene får man beskjed om i PyCharm også, som sånn krøllete linje under koden.
 
 ## Flake8
 
