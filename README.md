@@ -35,18 +35,41 @@ Installer på hele systemet, så sørg for å ikke være i en virtual environmen
 ```
 pip install flake8
 ```
+### Flake8 i terminalen
+
+Du kan kjøre Flake8 på en fil eller en mappe, og få beskjed om alle brudd på PEP8-standarden. Dette gjør du ved å skrive:
+
+```
+flake8 <path to file/folder>
+```
+
+Du kan overstyre pep8-standarden - enten ignorere regler eller endre default-verdiene (f.eks. maks lengde på en linje). Dette kan du gjøre ved å enten sende det inn som parameter i kommandoen eller lagre det i en config-fil. Hirarkiet som bestemmer hvilken verdi som blir satt er: 
+
+1. Parameter i kommandoen 
+2. Config-fil i prosjekt-mappen
+3. Global config-fil
+
+Config-filen må hete `.flake8` og vi foreslår som ligger i dette repoet som standard. 
+
 
 ### Flake8 i PyCharm
+
+Du kan også bruke PyCharm til å kjøre Flake8 på en fil eller en mappe: 
 
 1. Installer Flake8 (se over)
 2. Lokaliser Flake8: `which flake8`
 3. Preferences -> Tools -> External Tools -> + (legg til) `+`
-4. Fyll inn som her: ![settings](https://imgur.com/a/SDkjllW.png)
-  Name: `Flake8 - file` (én enkel fil) eller `Flake8 - folder` (én mappe)
-  Program: <resultatet fra steg 2>
-  Arguments: `--max-line-length 110 $FileDir$/$FileName$` (én enkel fil) eller `--max-line-length 110 $FileDir$` (én mappe)
-  Working directory: `$ProjectFileDir$`
+4. Fyll inn som her: ![Imgur](https://i.imgur.com/Y8YMDQb.png)
+  > *Name*: `Flake8 - file` (én enkel fil) eller `Flake8 - folder` (én mappe)\
+  > *Program*: _<resultatet fra steg 2>_\
+  > *Arguments*: `--max-line-length 120 $FileDir$/$FileName$` (én enkel fil) eller `--max-line-length 120 $FileDir$` (én mappe)\
+  > *Working directory*: `$ProjectFileDir$`
   
+#### For å ta det i bruk
+1. Høyeklikk på en fil eller mappe du vil kjøre Flake8 på
+2. Velg External tools -> Flake 8 - file / Flake 8 - folder
+3. Brudd på PEP8 blir listet opp i terminalen
+
 
 ## Black
 
@@ -77,8 +100,27 @@ Merk at du må ha PyCharm Professional!
 
 1. Installer Black (se over)
 2. Preferences -> Tools -> File Watchers -> + (legg til) `<custom>`
-3. Fyll inn som her: ![settings](https://i.imgur.com/UsuFDXm.png)
+3. Fyll inn som her: ![settings](https://i.imgur.com/UsuFDXm)
 
 Dersom du har Linux må du nok endre `/usr/local/bin/black`. Bare skriv `which black` i terminalen og kopier den stien.
 
 Nå vil Black kjøres på fila du jobber med når du lagrer!
+
+
+### Git-hooks
+Du kan sette opp hooks på git slik at Flake8 kjører i forkant av en commit og push. Det vil hindre deg i å commite/pushe underkjent kode, noe som kan være praktisk når Circleci vil brekke disse byggene. Du setter opp en githook på denne måten: 
+
+1. Copy the file `pre-commit` to `~/.git/hook-templates/pre-commit
+```
+mkdir ~/.git/hook-templates
+cp pre-commmit ~/.git/hook-templates/pre-commit
+```
+2. Make the file executable: 
+```
+chmod +x ~/.git/hook-templates/pre-commit
+```
+
+3. Add the hook to all new and excisting projects: 
+```
+git config --global core.hooksPath  ~/.git/hook-templates
+```
