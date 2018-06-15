@@ -101,6 +101,10 @@ pip3 install black
 
 Vet ikke hvordan det gjøres i Ubuntu - spør Ruben!
 
+### Oppgave
+
+Kjør `black post-black.py`, og så `git diff post-black.py`.
+
 ### Black i PyCharm
 
 Merk at du må ha PyCharm Professional!
