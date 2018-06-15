@@ -17,6 +17,13 @@ Noen argumenter for å bruke linting her: [How Python Linters Will Save Your Lar
 
 En del av PEP8-reglene får man beskjed om i PyCharm også.
 
+Noen eksempler på regler i PEP8, som jeg tror vi kan være enig i er god stil:
+
+- Indentering må være delelig på 4
+- Det skal være ny linje på slutten av fila
+- "Expected 2 blank lines after class or function definition, found 1"
+- Do not use bare `except`
+
 ## Flake8
 
 Flake8 er en linter som håndhever PEP8. Dersom du kjører det på en fil vil du få en beskjed om hvilke regler du ikke følger.
