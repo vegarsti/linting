@@ -1,12 +1,10 @@
-# Kjapp intro til linting og autoformatering
+# Intro to linting and code formatting
 
-Når vi skriver og snakker er det mye lettere å få til god kommunikasjon hvis språket er godt og konsekvent.
-På samme måte er det med programmering: Akkurat som vi har konvensjoner, normer og regler på norsk, har vi det
-i programmeringsspråk.
-[PEP8](https://www.python.org/dev/peps/pep-0008/) er en stilguide for Python. Her står det en del regler/konvensjoner om
-ting som hvordan formatere lister, bruke operatorer, osv.
+Etymology: Lint is the small dot of wool on your wool sweater. The process of removing it is linting!
 
-Noen eksempler på regler i PEP8, som jeg tror vi kan være enig i er god stil:
+Good communication is made a lot easier by consistent language. Similarly, programming in a project is made easier when all contributors and all code follow the same style. [PEP8](https://www.python.org/dev/peps/pep-0008/) is a style guide for Python. It lists many best practices and norms, or rules, which the Python "inventors" think we should follow. We don't necessarily need to follow exactly these, but we might want to use the same coding style. Getting used to different styles, and switching between these, is tiring. Some people on a given project might use a lot of comments, some use many empty lines between code blocks, others don't, etc.
+
+Some examples of rules in PEP8, which probably many can agree are good practices to follow:
 
 - indentation is not a multiple of four
 - no newline at end of file
@@ -14,21 +12,15 @@ Noen eksempler på regler i PEP8, som jeg tror vi kan være enig i er god stil:
 - too many blank lines (3)
 - comparison to `None` should be `'if cond is None:'`
 
-La oss si at alle skriver kode på den måten de synes er best selv. Mest sannsynlig vil det variere.
-Noen kommenterer mye, noen ikke. Noen bruker ofte linjer mellom kodeblokker, noen ikke.
-Jo større prosjekter, jo større sjanse er det da for at kodebasen blir veldig lite homogen.
-Det blir fort slitsomt å sette seg inn i kode og vanskeligere å lese dersom man må bruke energi på å tenke på variasjon her.
-
-**Kort fortalt er den beste grunnen til å bruke linting at man sparer tid i det lange løp!**
+**In short, the reason we want to use linting is that it saves time!**
 
 Noen argumenter for å bruke linting her: [How Python Linters Will Save Your Large Project](https://jeffknupp.com/blog/2016/12/09/how-python-linters-will-save-your-large-python-project/).
 
-En del av PEP8-reglene får man beskjed om i PyCharm også, som sånn krøllete linje under koden.
+Some of the rules that PyCharm tells us about our code (with the squiggly lines) are PEP8 rules.
 
 ## Flake8
 
-Flake8 er en linter som håndhever PEP8. Dersom du kjører det på en fil vil du få en beskjed om hvilke regler du ikke følger.
-Noen av disse er rent stilmessige, andre er faktisk kodelogikk, altså feil man har gjort. Eksempler (noen [herfra](http://flake8.pycqa.org/en/latest/user/error-codes.html)):
+Flake8 is a code linter which enforces PEP8, meaning we can run it to analyze our code, and we get told what rules it breaks. Some of these rules are only stylistic others are about actual code logic, that is, errors. Examples (some from [here](http://flake8.pycqa.org/en/latest/user/error-codes.html)):
 
 - line too long
 - local variable `x` is assigned to but never used
@@ -36,22 +28,19 @@ Noen av disse er rent stilmessige, andre er faktisk kodelogikk, altså feil man 
 - a break statement outside of a while or for loop
 - redefinition of unused name from line N
 
-### Installasjon
+### Installation
 
-Installer på hele systemet, så sørg for å ikke være i en virtual environment. (Skriv `deactivate` i terminalen for å være sikker.)
+Install it systemwide, so make sure you're not in a virtual environment. In your terminal, first run `deactivate` to do this, and then install flake8 with `pip install flake8`.
 
-```
-pip install flake8
-```
-### Flake8 i terminalen
+### Flake8 in the terminal
 
-Du kan kjøre Flake8 på en fil eller en mappe, og få beskjed om alle brudd på PEP8-standarden. Dette gjør du ved å skrive:
+We can run Flake8 on a file or a folder, and it tells us what we break in PEP8. We do this by
 
 ```
 flake8 <path to file/folder>
 ```
 
-Du kan overstyre pep8-standarden - enten ignorere regler eller endre default-verdiene (f.eks. maks lengde på en linje). Dette kan du gjøre ved å enten sende det inn som parameter i kommandoen eller lagre det i en config-fil. Hirarkiet som bestemmer hvilken verdi som blir satt er: 
+You can overrule, or downright ignore, some rules in PEP8. You can also change the default value of some. Dette kan du gjøre ved å enten sende det inn som parameter i kommandoen eller lagre det i en config-fil. Hirarkiet som bestemmer hvilken verdi som blir satt er: 
 
 1. Parameter i kommandoen 
 2. Config-fil i prosjekt-mappen
@@ -60,67 +49,70 @@ Du kan overstyre pep8-standarden - enten ignorere regler eller endre default-ver
 Config-filen må hete `.flake8` og vi foreslår som ligger i dette repoet som standard. 
 
 
-### Flake8 i PyCharm
+### Flake8 in PyCharm
 
-Du kan også bruke PyCharm til å kjøre Flake8 på en fil eller en mappe: 
+You can also run Flake8 through PyCharm:
 
-1. Installer Flake8 (se over)
-2. Lokaliser Flake8: `which flake8`
-3. Preferences -> Tools -> External Tools -> + (legg til) `+`
-4. Fyll inn som her: ![Imgur](https://i.imgur.com/Y8YMDQb.png)
-  > *Name*: `Flake8 - file` (én enkel fil) eller `Flake8 - folder` (én mappe)\
-  > *Program*: _<resultatet fra steg 2>_\
-  > *Arguments*: `--max-line-length 120 $FileDir$/$FileName$` (én enkel fil) eller `--max-line-length 120 $FileDir$` (én mappe)\
+1. Install Flake8 (see above)
+2. Find where Flake8 is installed: `which flake8`
+3. Preferences -> Tools -> External Tools -> + (add) `+`
+4. Fill in like this: ![Imgur](https://i.imgur.com/Y8YMDQb.png)
+  > *Name*: `Flake8 - file` (a single file) or `Flake8 - folder` (a folder)\
+  > *Program*: _<result from step 2>_\
+  > *Arguments*: `--max-line-length 120 $FileDir$/$FileName$` (a single file) or `--max-line-length 120 $FileDir$` (a folder)\
   > *Working directory*: `$ProjectFileDir$`
   
-#### For å ta det i bruk
-1. Høyeklikk på en fil eller mappe du vil kjøre Flake8 på
-2. Velg External tools -> Flake 8 - file / Flake 8 - folder
-3. Brudd på PEP8 blir listet opp i terminalen
+#### To use
+1. Right click on a file or folder you want to run Flake8 on
+2. Click on External tools -> Flake 8 - file / Flake 8 - folder
+3. PEP8 violations will be listed in the terminal, and with clickable links to the offending code line
 
 
 ## Black
 
 >[Black](https://github.com/ambv/black) is the uncompromising Python code formatter.
 
-Black er et program som man kjører på kodefiler, og den bare endrer disse filene slik at formateringa følger visse regler.
-De reglene den håndhever er et utvalg av reglene i PEP8. Du kan kjøre Black på en fil ved å gjøre `black file`.
+Black is a program we can run on code files, and it simply changes these files such that they enforce (some of the) rules from PEP8. The file is formatted by Black (_"blackened"_) by doing `black file` in the terminal.
+
+One of the pros of using Black, from their Github page, is
 
 >Black makes code review faster by producing the smallest diffs possible.
 
-Ved å bruke Black konsekvent på et prosjekt vil man få små diffs (forskjellen som kommer opp i Git),
-kun det som "faktisk" er endret vil dukke opp. Dersom man skal bruke Black må alle på prosjektet være enige om det, hvis ikke blir det kaos!
+By consistently using Black on a project we will get small diffs,
+so only what is "actually" changed will show up.
 
-### Installasjon
+### Installation
 
-På Mac, i terminalen: (Pass på å ikke være i et virtual environment, så skriv `deactivate` i terminalen for å være sikker.)
+Black requires Python 3.6. We want to install this systemwide, so make sure you're not in a virtual environment. In your terminal, first run `deactivate` to do this. On a Mac, in the terminal, do
 
 ```
 brew install python3
 pip3 install black
 ```
 
-Vet ikke hvordan det gjøres i Ubuntu - spør Ruben!
+Not quite sure how do this in Ubuntu, ask Ruben.
 
-### Oppgave
+### Exercise!
 
-Kjør `black post-black.py`, og så `git diff post-black.py`.
+Run `black post-black.py`, and then `git diff post-black.py`, to see the differences in formatting.
 
-### Black i PyCharm
+### Black in PyCharm
 
-Merk at du må ha PyCharm Professional!
+Note that you need to have PyCharm Professional, not Community Edition.
 
-1. Installer Black (se over)
-2. Preferences -> Tools -> File Watchers -> + (legg til) `<custom>`
-3. Fyll inn som her: ![settings](https://i.imgur.com/UsuFDXm.png)
+1. Install Black (se over)
+2. Locate Black with `which black` (`where black` on Windows)
+3. Preferences -> Tools -> File Watchers -> + (add) `<custom>`
+4. Fill in like here: ![settings](https://i.imgur.com/UsuFDXm.png)
+5. Press OK -> Apply -> OK
 
-Dersom du har Linux må du nok endre `/usr/local/bin/black`. Bare skriv `which black` i terminalen og kopier den stien.
+(If not on a Mac you probably need to change `/usr/local/bin/black` to the result from 2.)
 
-Nå vil Black kjøres på fila du jobber med når du lagrer!
+Now Black will format your file when you press Save!
 
+### Git hooks
 
-### Git-hooks
-Du kan sette opp hooks på git slik at Flake8 kjører i forkant av en commit og push. Det vil hindre deg i å commite/pushe underkjent kode, noe som kan være praktisk når Circleci vil brekke disse byggene. Du setter opp en githook på denne måten: 
+You can set up hooks on git to make Flake8 run to check if you are allowed to commit or push. It will stop you from pushing/commiting code with violations, which is nice since the CircleCI build might break, but this would take longer to noticed. You set up a git hook like this:
 
 1. Copy the file `pre-commit` to `~/.git/hook-templates/pre-commit
 ```
@@ -131,7 +123,6 @@ cp pre-commmit ~/.git/hook-templates/pre-commit
 ```
 chmod +x ~/.git/hook-templates/pre-commit
 ```
-
 3. Add the hook to all new and excisting projects: 
 ```
 git config --global core.hooksPath  ~/.git/hook-templates
