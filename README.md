@@ -10,7 +10,6 @@ Noen eksempler på regler i PEP8, som jeg tror vi kan være enig i er god stil:
 
 - indentation is not a multiple of four
 - no newline at end of file
-- expected 2 blank lines after class or function definition, found 1
 - do not use bare `except`
 - too many blank lines (3)
 - comparison to `None` should be `'if cond is None:'`
